@@ -1,0 +1,756 @@
+body {
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: 12px;
+    font-family: -apple-system, Helvetica, sans-serif;
+    color: #666;
+    line-height: 1.5;
+}
+
+/*点击高亮我们需要清除清除  设置为transparent 完成透明*/
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/*在移动端浏览器默认的外观在iOS上加上这个属性才能给按钮和输入框自定义样式*/
+
+input {
+    -webkit-appearance: none;
+}
+
+/*禁用长按页面时的弹出菜单*/
+
+img,
+a {
+    -webkit-touch-callout: none;
+}
+
+p,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+a,
+img {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    /* css3 盒子模型 */
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    line-height: 0;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+
+.container {
+    width: 100%;
+
+    //顶部广告
+    .ad {
+        width: 100%;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        background-color: #333333;
+
+        div {
+            float: left;
+        }
+
+        // 关闭
+        div:nth-child(1) {
+            position: relative;
+            width: 8%;
+            height: 45px;
+
+            span {
+                position: absolute;
+                top: 50%-10;
+                left: 50%-10;
+                display: block;
+                width: 10px;
+                height: 10px;
+                background-image: url(../image/close.png);
+                background-repeat: no-repeat;
+                background-size: 10px;
+            }
+        }
+
+        // logo
+        div:nth-child(2) {
+            width: 10%;
+            // height: 45px;
+
+            img {
+                width: 30px;
+                vertical-align: middle;
+            }
+        }
+
+        // 文字
+        div:nth-child(3) {
+            width: 57%;
+            color: white;
+        }
+
+        // 打开
+        div:nth-child(4) {
+            width: 25%;
+            background-color: #e43130;
+
+            a {
+                color: white;
+            }
+        }
+    }
+
+    // 头部固定
+    header {
+        // 设置sticky用于固定头部盒子
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 44px;
+        line-height: 44px;
+        background-color: rgb(228, 49, 48);
+        z-index: 1;
+        overflow: hidden;
+
+        // 左边固定
+        .left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 44px;
+
+            text-align: center;
+
+            img {
+                width: 50%;
+            }
+
+        }
+
+        // 中间自适应
+        .middle {
+            position: relative;
+            // width: 100%;
+            margin: 7px 50px 0;
+
+            .box {
+                width: 100%;
+                height: 30px;
+                line-height: 30px;
+                margin: 0 auto;
+                border-radius: 50px;
+                background-color: #fff;
+
+                span:first-child {
+                    margin-left: 5%;
+
+                    img {
+                        width: 5%;
+                        vertical-align: middle;
+                    }
+                }
+
+                span:last-child {
+                    display: inline-block;
+                    width: 20px;
+                    height: 20px;
+                    vertical-align: middle;
+                    background: url(../image/sprite.png) no-repeat -81px 3px;
+                    background-size: 200px auto;
+                }
+
+            }
+        }
+
+        // 右边固定
+        .right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40px;
+            height: 44px;
+
+            a {
+                color: white;
+            }
+
+            // background-color: purple;
+        }
+    }
+
+    // 轮播图
+    .banner {
+        position: relative;
+        // height: 206px;
+        //想上移动固定头部盒子的高度
+        margin-top: -44px;
+        // 设置盒子顺序低于固定头部盒子
+        z-index: 0;
+        overflow: hidden;
+
+        // 底部红色盒子
+        .box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 110%;
+            height: 70%;
+            margin-left: -5%;
+            border-radius: 0 0 30% 30%;
+            background-color: #c82519;
+            z-index: -1;
+        }
+
+        // 轮播图片
+        .image {
+            // position: absolute;
+            // bottom: 0;
+            margin: 15% auto 0;
+            width: 90%;
+            text-align: center;
+            // height: 154px;
+            // margin-left: 2.5%;
+            z-index: 999;
+            // 
+
+            overflow: hidden;
+
+            img {
+                // width: 350px;
+                width: 100%;
+                border-radius: 10px;
+            }
+        }
+    }
+
+    // 生鲜
+    .fresh {
+        // 该盒子有高度，故不用清除浮动
+        // height: 110px;
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            float: left;
+            width: 33.33%;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    // 功能区
+    .box_list {
+        text-align: center;
+
+        a {
+            float: left;
+            width: 20%;
+            height: 81px;
+
+            img {
+                margin-top: 10px;
+                width: 44px;
+            }
+        }
+    }
+
+    // 秒杀
+    .second {
+        .s_box {
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 11px;
+            background-color: #fff;
+
+            .time {
+                position: relative;
+                height: 39px;
+                line-height: 45px;
+
+                .left {
+                    float: left;
+                    width: 62px;
+                }
+
+                .middle {
+                    float: left;
+                    width: 123px;
+                    line-height: 39px;
+
+                    .inner {
+                        width: 123px;
+                        height: 20px;
+                        margin-top: 10px;
+                        border: 2px solid red;
+                        border-radius: 20px;
+
+                        .red {
+                            float: left;
+                            width: 53px;
+                            height: 20px;
+                            line-height: 20px;
+                            text-align: center;
+                            border-radius: 20px;
+                            color: white;
+                            background-color: red;
+                        }
+
+                        .now_time {
+                            float: left;
+                            line-height: 20px;
+                            color: red;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+
+                .right {
+                    float: right;
+                    width: 77px;
+                    color: red;
+
+                    span {
+                        display: inline-block;
+                        width: 12px;
+                        height: 12px;
+                        line-height: 12px;
+                        text-align: center;
+                        border-radius: 50%;
+                        color: white;
+                        background-color: red;
+                    }
+                }
+            }
+
+            .s_price {
+                ul {
+                    padding: 0;
+                }
+
+                ul li {
+                    float: left;
+                    width: 24%;
+                    height: 130px;
+                    // background-color: yellowgreen;
+                    text-align: center;
+
+                    div.image {
+                        width: 100%;
+                        height: 73px;
+
+                        img {
+                            height: 100%;
+                            vertical-align: top;
+                        }
+                    }
+
+                    .new_price {
+                        width: 100%;
+                        height: 46px;
+                        line-height: 30px;
+                        line-height: 20px;
+
+                        p {
+                            font-size: 14px;
+                            color: red;
+                        }
+
+                        del {
+                            color: #a0a0a0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // 新人专项
+    .new_people {
+        // 用overflow清除浮动
+        overflow: hidden;
+
+        .box {
+            width: 90%;
+            margin: 0 auto;
+
+            .images {
+                float: left;
+                width: 50%;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    // 省钱
+    .save {
+        img {
+            width: 100%;
+        }
+    }
+
+    // 东家小院
+    .dong {
+        background-color: #f6f6f6;
+
+        .title {
+            img {
+                width: 100%;
+            }
+        }
+
+        .content {
+            width: 90%;
+            margin: 0 auto;
+            background-color: #fff;
+
+
+
+            .top {
+                border-bottom: 1px solid #e5e5e5;
+
+                .left {
+                    float: left;
+                    width: 50%;
+                    border-right: 1px solid #e5e5e5;
+                }
+
+                .right {
+                    float: left;
+                    width: 50%-1px;
+                }
+
+                h2 {
+                    color: skyblue;
+                    font-size: 14px;
+                }
+
+                p {
+                    font-weight: 100;
+                }
+
+                div {
+                    .text {
+                        margin-left: 10px;
+                    }
+
+                    .image {
+                        width: 90%;
+                        margin: 0 auto;
+                        padding-bottom: 2%;
+
+                        div {
+                            float: left;
+                            width: 50%;
+
+                            img {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            .bottom {
+                width: 100%;
+
+                h3 {
+                    font-weight: bold;
+                    font-size: 12px;
+                }
+
+                p {
+                    font-weight: 100;
+                }
+
+                ul {
+                    margin: 0;
+                    padding: 0;
+                }
+
+                ul li {
+                    float: left;
+                    width: 24%;
+                    // height: 132px;
+                    border-right: 1px solid #e5e5e5;
+
+                    .text {
+                        // height: 42px;
+                        padding: 10px 10px 0;
+                    }
+
+                    .image {
+                        width: 80%;
+                        margin: 12px auto;
+                        text-align: center;
+
+                        img {
+                            width: 100%;
+                            vertical-align: top;
+                        }
+                    }
+                }
+
+                ul li:nth-child(2) {
+                    width: 25%;
+                }
+
+                ul li:last-child {
+                    border-right: none;
+                }
+            }
+        }
+
+    }
+
+    // 每日逛
+    .watch {
+        width: 100%;
+        text-align: center;
+        overflow: hidden;
+        background-color: #f6f6f6;
+        padding-bottom: 15px;
+
+        .title {
+            img {
+                width: 100%;
+            }
+        }
+
+        .content {
+            width: 90%;
+            margin: 0 auto;
+            background-color: #fff;
+
+            h3 {
+                font-weight: bold;
+                font-size: 12px;
+            }
+
+            p {
+                font-weight: 100;
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            ul li {
+                float: left;
+                width: 24%;
+                border-right: 1px solid #e5e5e5;
+                border-bottom: 1px solid #e5e5e5;
+
+                .text {
+                    padding: 10px 10px 0;
+                }
+
+                .image {
+                    width: 80%;
+                    text-align: center;
+                    margin: 12px auto;
+
+                    img {
+                        width: 100%;
+
+                    }
+                }
+            }
+
+            ul li:nth-child(4n) {
+                border-right: none;
+            }
+
+            ul li:nth-child(n+5) {
+                border-bottom: none;
+            }
+        }
+    }
+
+    // 为你推荐
+    .recommend {
+        padding-top: 15px;
+        font-size: 12px;
+        background-color: #f0f2f5;
+        overflow: hidden;
+
+        .title {
+            width: 90%;
+            margin: auto;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .content {
+            width: 90%;
+            margin: 0 auto;
+
+            ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            ul li {
+                float: left;
+                width: 49%;
+                background-color: #fff;
+                margin-bottom: 15px;
+
+                .image {
+                    // height: 194px;
+
+                    img {
+                        width: 100%;
+                        // height: 194px;
+                    }
+                }
+
+                .info {
+                    // height: 32px;
+
+                    p {
+                        display: -webkit-box;
+                        overflow: hidden;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        text-overflow: ellipsis;
+                    }
+                }
+
+                .price {
+                    height: 26px;
+                    line-height: 16px;
+                    margin-top: 15px;
+                    padding: 0 10px;
+
+                    span {
+                        float: left;
+                        color: red;
+                    }
+
+                    a {
+                        font-size: 12px;
+                        float: right;
+                        line-height: 16px;
+                        border: 1px solid #cfcfcf;
+                    }
+                }
+            }
+
+            ul li:nth-child(odd) {
+                float: left;
+            }
+
+            ul li:nth-child(even) {
+                float: right;
+            }
+        }
+    }
+
+    // 加载
+    .load {
+        padding: 20px 0;
+        text-align: center;
+        background-color: #f0f2f5;
+    }
+
+    // 页脚
+    .footer {
+        text-align: center;
+
+        .top {
+            line-height: 63px;
+            border-top: 1px solid #e5e5e5;
+
+            a {
+                // display: inline-block;
+                padding: 0 4%;
+            }
+        }
+
+        .middle {
+            // height: 76px;
+            border-top: 1px solid #e5e5e5;
+
+            ul li {
+                float: left;
+                width: 33.33%;
+                // height: 76px;
+
+                img {
+                    width: 66px;
+                    height: 66px;
+                }
+            }
+        }
+
+        .bottom {
+            height: 35px;
+            line-height: 35px;
+            border-top: 1px solid #e5e5e5;
+        }
+    }
+
+    // 底部固定选项卡
+    .tab {
+        position: sticky;
+        bottom: 0;
+        width: 100%;
+        margin-top: 10px;
+        box-shadow: 0 0 10px -2px #666;
+        background-color: #fff;
+
+        a {
+            display: inline-block;
+            width: 19%;
+
+            img {
+                width: 100%;
+            }
+        }
+
+    }
+}
